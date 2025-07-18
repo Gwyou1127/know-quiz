@@ -1,0 +1,471 @@
+/* 게임 플레이 화면 스타일 */
+.game-player {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+/* 로딩 화면 */
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+  font-size: 1.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+}
+
+/* 대기 화면 */
+.waiting-screen {
+  text-align: center;
+  padding: 40px 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  margin-bottom: 20px;
+}
+
+.waiting-icon {
+  font-size: 4rem;
+  margin-bottom: 20px;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+.waiting-screen h2 {
+  margin-bottom: 10px;
+  font-size: 2rem;
+}
+
+.waiting-screen p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  margin-bottom: 30px;
+}
+
+/* 참가자 미리보기 */
+.participants-preview {
+  margin-top: 30px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+}
+
+.participants-preview h3 {
+  margin-bottom: 15px;
+  font-size: 1.3rem;
+}
+
+.participants-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+}
+
+.participant-badge {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 15px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  font-size: 0.9rem;
+}
+
+.participant-name {
+  font-weight: 600;
+}
+
+.participant-role {
+  font-size: 1.2rem;
+}
+
+/* 게임 헤더 */
+.game-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+}
+
+.question-progress {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.timer {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ffd700;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+/* 문제 컨테이너 */
+.question-container {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 30px;
+  margin-bottom: 30px;
+  backdrop-filter: blur(10px);
+}
+
+.question-text {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 30px;
+  line-height: 1.6;
+  text-align: center;
+}
+
+/* 옵션 컨테이너 */
+.options-container {
+  display: grid;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.option-btn {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid transparent;
+  border-radius: 15px;
+  color: white;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: left;
+}
+
+.option-btn:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.option-btn.selected {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-color: #ffd700;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+}
+
+.option-btn.answered {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.option-letter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  font-weight: bold;
+  margin-right: 15px;
+  flex-shrink: 0;
+}
+
+.option-text {
+  flex: 1;
+  line-height: 1.4;
+}
+
+/* 답변 제출 버튼 */
+.answer-actions {
+  text-align: center;
+}
+
+.submit-btn {
+  padding: 15px 40px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(40, 167, 69, 0.3);
+}
+
+.submit-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(40, 167, 69, 0.4);
+}
+
+.submit-btn:disabled {
+  background: #6c757d;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* 실시간 리더보드 */
+.live-leaderboard {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 20px;
+  backdrop-filter: blur(10px);
+}
+
+.live-leaderboard h3 {
+  margin-bottom: 15px;
+  text-align: center;
+  font-size: 1.3rem;
+}
+
+.leaderboard-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.leaderboard-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 15px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  font-size: 1rem;
+}
+
+.leaderboard-item.rank-1 {
+  background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+  color: #333;
+  font-weight: bold;
+}
+
+.leaderboard-item.rank-2 {
+  background: linear-gradient(135deg, #c0c0c0 0%, #e5e5e5 100%);
+  color: #333;
+}
+
+.leaderboard-item.rank-3 {
+  background: linear-gradient(135deg, #cd7f32 0%, #daa520 100%);
+  color: white;
+}
+
+.rank {
+  font-weight: bold;
+  min-width: 30px;
+}
+
+.player-name {
+  flex: 1;
+  margin: 0 15px;
+  font-weight: 600;
+}
+
+.player-score {
+  font-weight: bold;
+  color: #ffd700;
+}
+
+/* 게임 종료 화면 */
+.game-ended {
+  text-align: center;
+  padding: 40px 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+}
+
+.ended-icon {
+  font-size: 4rem;
+  margin-bottom: 20px;
+}
+
+.game-ended h2 {
+  margin-bottom: 10px;
+  font-size: 2rem;
+}
+
+.game-ended p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  margin-bottom: 30px;
+}
+
+.final-leaderboard {
+  margin-top: 30px;
+}
+
+.final-leaderboard h3 {
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+}
+
+/* 문제 결과 화면 */
+.question-results {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 30px;
+  backdrop-filter: blur(10px);
+}
+
+.results-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.results-header h2 {
+  margin-bottom: 10px;
+  font-size: 1.8rem;
+}
+
+.results-header p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+.results-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.result-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  margin-bottom: 0.5rem;
+  border-radius: 10px;
+  background: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.result-item.correct {
+  border-left: 4px solid #28a745;
+  background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+}
+
+.result-item.incorrect {
+  border-left: 4px solid #dc3545;
+  background: linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%);
+}
+
+.player-name {
+  font-weight: 600;
+  color: #333;
+  min-width: 100px;
+}
+
+.answer-status {
+  font-size: 1.2rem;
+  margin: 0 1rem;
+}
+
+.selected-answer {
+  color: #666;
+  font-size: 0.9rem;
+  margin-right: 0.5rem;
+}
+
+.correct-answer {
+  color: #28a745;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-right: 0.5rem;
+}
+
+.score-earned {
+  color: #28a745;
+  font-weight: 600;
+  margin-right: 0.5rem;
+}
+
+.total-score {
+  color: #667eea;
+  font-weight: 600;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .game-player {
+    padding: 15px;
+  }
+  
+  .question-text {
+    font-size: 1.3rem;
+  }
+  
+  .option-btn {
+    padding: 15px;
+    font-size: 1rem;
+  }
+  
+  .option-letter {
+    width: 35px;
+    height: 35px;
+    font-size: 0.9rem;
+  }
+  
+  .game-header {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .participants-grid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  }
+  
+  .result-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+  
+  .player-name,
+  .answer-status,
+  .selected-answer,
+  .correct-answer,
+  .score-earned,
+  .total-score {
+    margin: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .question-container {
+    padding: 20px;
+  }
+  
+  .question-text {
+    font-size: 1.2rem;
+  }
+  
+  .option-btn {
+    padding: 12px;
+    font-size: 0.9rem;
+  }
+  
+  .option-letter {
+    width: 30px;
+    height: 30px;
+    font-size: 0.8rem;
+    margin-right: 10px;
+  }
+  
+  .submit-btn {
+    padding: 12px 30px;
+    font-size: 1rem;
+  }
+} 
